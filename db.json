@@ -1,0 +1,11 @@
+{
+    "users": {
+        "1": {
+            "username": "JoeAnna",
+            "passwordHash": "$2y$12$3yQpB0w534rCLe3OG8xLreabR2xUG8WKkdHg4HwYagHUb8ahafCO2",
+            "email": "john@example.com",
+            "registrationDate": "2023-01-15T10:00:00Z",
+            "egg_records": []
+        }
+    }
+}

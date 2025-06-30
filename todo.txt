@@ -1,0 +1,5 @@
+presentation
+
+email and name client side validation
+open login tab by default
+stay logged in and check if logged in
