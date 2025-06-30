@@ -1,6 +1,6 @@
 <?php
 
-echo "<h1>auto deploy worked!testing</h1>";
+echo "<h1>auto deploy worked!testingtesting</h1>";
 
 
 ?>
