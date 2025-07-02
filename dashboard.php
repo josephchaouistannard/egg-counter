@@ -41,7 +41,7 @@ function refreshEggRecords()
 <body>
     <header>
         <nav>
-            <a href="logout.php">Logout</a>
+            <a href="logout.php">Log out</a>
         </nav>
     </header>
 
