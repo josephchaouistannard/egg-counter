@@ -5,7 +5,20 @@
             "passwordHash": "$2y$12$3yQpB0w534rCLe3OG8xLreabR2xUG8WKkdHg4HwYagHUb8ahafCO2",
             "email": "john@example.com",
             "registrationDate": "2023-01-15T10:00:00Z",
-            "egg_records": []
+            "egg_records": [
+                {
+                    "id": 1,
+                    "quantity": 2,
+                    "notes": "",
+                    "recordedAt": "2025-07-01T07:27:27Z"
+                },
+                {
+                    "id": 2,
+                    "quantity": 2,
+                    "notes": "",
+                    "recordedAt": "2025-06-30T07:27:30Z"
+                }
+            ]
         }
     }
 }
