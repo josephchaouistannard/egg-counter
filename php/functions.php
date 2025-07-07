@@ -78,13 +78,13 @@ function countEggs($usersEggRecords)
             $eggsToday += $record["quantity"];
         }
         else if ($recordDayStart >= $last7DaysStart) {
-            $eggsLast7Days += $record["quantity"];
+            $eggsWeek += $record["quantity"];
         }
         else if ($recordDayStart >= $last30DaysStart) {
-            $eggsLast30Days += $record["quantity"];
+            $eggsMonth += $record["quantity"];
         }
         else if ($recordDayStart >= $last365DaysStart) {
-            $eggsLast365Days += $record["quantity"];
+            $eggsYear += $record["quantity"];
         }
     }
     return ["today" => $eggsToday, "week" => $eggsWeek, "month" => $eggsMonth, "year" => $eggsYear];
