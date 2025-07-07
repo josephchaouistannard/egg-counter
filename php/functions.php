@@ -95,9 +95,9 @@ function getEggCountHTML($usersEggRecords)
     $count = countEggs($usersEggRecords);
     return "
     <p>Today: {$count['today']}</p>
-    <p>7 days: {$count['week']}</p>
-    <p>30 days: {$count['month']}</p>
-    <p>1 year: {$count['year']}</p>
+    <p>7 days: {$count['week']} <i>(" . round($count['week']/7, 2) . ")</i></p>
+    <p>30 days: {$count['month']} <i>(" . round($count['month']/30, 2) . ")</i></p>
+    <p>1 year: {$count['year']} <i>(" . round($count['year']/365, 2) . ")</i></p>
     ";
 }
 
