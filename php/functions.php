@@ -67,20 +67,24 @@ function countEggs($usersEggRecords)
     $eggsMonth = 0;
     $eggsYear = 0;
     $now = new Datetime();
+    $todayStart = (clone $now)->setTime(0, 0, 0);
+    $last7DaysStart = (clone $now)->setTime(0, 0, 0)->modify('-7 days');
+    $last30DaysStart = (clone $now)->setTime(0, 0, 0)->modify('-30 days');
+    $last365DaysStart = (clone $now)->setTime(0, 0, 0)->modify('-365 days');
     foreach ($usersEggRecords as $record) {
-        $date = new DateTime($record["recordedAt"]);
-        $interval = $date->diff($now);
-        if ($interval->days == 0) {
+        $recordDate = new DateTime($record["recordedAt"]);
+        $recordDayStart = (clone $recordDate)->setTime(0, 0, 0);
+        if ($recordDayStart == $todayStart) {
             $eggsToday += $record["quantity"];
         }
-        if ($interval->days <= 7) {
-            $eggsWeek += $record["quantity"];
+        else if ($recordDayStart >= $last7DaysStart) {
+            $eggsLast7Days += $record["quantity"];
         }
-        if ($interval->days <= 30) {
-            $eggsMonth += $record["quantity"];
+        else if ($recordDayStart >= $last30DaysStart) {
+            $eggsLast30Days += $record["quantity"];
         }
-        if ($interval->days <= 365) {
-            $eggsYear += $record["quantity"];
+        else if ($recordDayStart >= $last365DaysStart) {
+            $eggsLast365Days += $record["quantity"];
         }
     }
     return ["today" => $eggsToday, "week" => $eggsWeek, "month" => $eggsMonth, "year" => $eggsYear];
