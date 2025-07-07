@@ -77,13 +77,13 @@ function countEggs($usersEggRecords)
         if ($recordDayStart == $todayStart) {
             $eggsToday += $record["quantity"];
         }
-        else if ($recordDayStart >= $last7DaysStart) {
+        if ($recordDayStart < $todayStart and $recordDayStart >= $last7DaysStart) {
             $eggsWeek += $record["quantity"];
         }
-        else if ($recordDayStart >= $last30DaysStart) {
+        if ($recordDayStart < $todayStart and $recordDayStart >= $last30DaysStart) {
             $eggsMonth += $record["quantity"];
         }
-        else if ($recordDayStart >= $last365DaysStart) {
+        if ($recordDayStart < $todayStart and $recordDayStart >= $last365DaysStart) {
             $eggsYear += $record["quantity"];
         }
     }
