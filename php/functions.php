@@ -96,3 +96,13 @@ function getEggCountHTML($usersEggRecords)
     <p>1 year: {$count['year']}</p>
     ";
 }
+
+function printEggRecordList($usersEggRecords) {
+    $all_string = '<div class="egg-record-list">';
+    foreach ($usersEggRecords as $record) {
+        $date = new DateTime($record['recordedAt']);
+        $string = '<p><strong>' . $date->format('H:i, j F') . '</strong> - ' . $record['quantity'] . ' eggs</p>';
+        $all_string = $all_string . $string;
+    }
+    return $all_string . '</div>';
+}

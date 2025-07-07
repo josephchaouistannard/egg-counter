@@ -67,6 +67,8 @@ function refreshEggRecords()
             </form>
         </div>
 
+        <?php echo printEggRecordList($usersEggRecords) ?>
+
     </main>
 
     <footer>
