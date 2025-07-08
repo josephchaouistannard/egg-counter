@@ -100,3 +100,12 @@ form * {
 #recorder * {
   margin: 0.2rem;
 }
+
+.egg-record-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px grey dashed;
+  padding: 0 0.5rem;
+}

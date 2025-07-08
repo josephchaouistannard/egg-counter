@@ -52,4 +52,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Handle non-POST requests
     echo json_encode(["success" => false, "message" => "Invalid request method"]);
 }
-// No closing ?> tag

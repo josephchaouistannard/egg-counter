@@ -54,6 +54,35 @@ function addEggRecord($userID, $record)
     }
 }
 
+function deleteEggRecord($userID, $recordID)
+{
+    global $all_data;
+    global $dbaccess; // Access the global dbaccess object
+
+    // Find the user by ID
+    if (isset($all_data['users'][$userID])) {
+
+        foreach ($all_data['users'][$userID]['egg_records'] as $index => $record) {
+            if ($record['id'] == $recordID) {
+                array_splice($all_data['users'][$userID]['egg_records'], $index, 1); // Remove the record
+
+                // Save the updated data back to the JSON file
+                $dbaccess->writeJSON($all_data);
+
+                return true;
+            }
+        }
+
+
+
+        return true; // Indicate success
+    } else {
+        // Handle case where user ID doesn't exist
+        error_log("Attempted to add egg record for non-existent user ID: " . $userID);
+        return false; // Indicate failure
+    }
+}
+
 function getEggRecordsUser($userID)
 {
     global $all_data;
@@ -109,8 +138,17 @@ function printEggRecordList($usersEggRecords)
     $all_string = '<div class="egg-record-list">';
     foreach ($usersEggRecords as $record) {
         $date = new DateTime($record['recordedAt']);
-        $string = '<p><strong>' . $date->format('H:i, j F') . '</strong> - ' . $record['quantity'] . ' eggs</p>';
-        $all_string = $all_string . $string;
+        $string = '<div class="egg-record-item" style="margin-bottom:10px;">';
+        $string .= '<p><strong>' . $date->format('H:i, j F') . '</strong> - ' . $record['quantity'] . ' eggs</p>';
+
+        $string .= '<form method="POST" action="php/deleterecord.php">';
+        $string .= '<input type="hidden" name="recordID" value="' . $record['id'] . '">';
+        $string .= '<button type="submit" onclick="return confirm(\'Are you sure you want to delete this record?\');">Delete</button>';
+        $string .= '</form>';
+
+        $string .= '</div>';
+        $all_string .= $string;
     }
+
     return $all_string . '</div>';
 }
