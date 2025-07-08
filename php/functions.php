@@ -95,13 +95,17 @@ function getEggCountHTML($usersEggRecords)
     $count = countEggs($usersEggRecords);
     return "
     <p>Today: {$count['today']}</p>
-    <p>7 days: {$count['week']} <i>(" . round($count['week']/7, 2) . ")</i></p>
-    <p>30 days: {$count['month']} <i>(" . round($count['month']/30, 2) . ")</i></p>
-    <p>1 year: {$count['year']} <i>(" . round($count['year']/365, 2) . ")</i></p>
+    <p>7 days: {$count['week']} <i>(" . round($count['week'] / 7, 2) . ")</i></p>
+    <p>30 days: {$count['month']} <i>(" . round($count['month'] / 30, 2) . ")</i></p>
+    <p>1 year: {$count['year']} <i>(" . round($count['year'] / 365, 2) . ")</i></p>
     ";
 }
 
-function printEggRecordList($usersEggRecords) {
+function printEggRecordList($usersEggRecords)
+{
+    usort($usersEggRecords, function ($a, $b) {
+        return strtotime($b['recordedAt']) <=> strtotime($a['recordedAt']);
+    });
     $all_string = '<div class="egg-record-list">';
     foreach ($usersEggRecords as $record) {
         $date = new DateTime($record['recordedAt']);
