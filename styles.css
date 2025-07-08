@@ -109,3 +109,12 @@ form * {
   border-bottom: 1px grey dashed;
   padding: 0 0.5rem;
 }
+
+.plus-minus-button {
+  border: 1px black solid;
+  color: black;
+  font-weight: 700;
+  border-radius: 5px;
+  background-color: darkgrey;
+  padding: 0.5em;
+}

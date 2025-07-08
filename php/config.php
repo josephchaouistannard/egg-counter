@@ -5,4 +5,4 @@ error_reporting(E_ALL);
 
 date_default_timezone_set('Europe/Paris');
 
-$css_version = "0001";
+$css_version = "0002";

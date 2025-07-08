@@ -57,9 +57,9 @@ function refreshEggRecords()
             <h5>Record Eggs</h5>
             <form method="POST" action="php/submitrecord.php">
                 <div id="recorder">
-                    <div id="-" onclick="incrementCounter('-')">-</div>
+                    <div id="-" class="plus-minus-button" onclick="incrementCounter('-')">-</div>
                     <h3 id="recorderCount">0</h3>
-                    <div id="+" onclick="incrementCounter('+')">+</div>
+                    <div id="+" class="plus-minus-button" onclick="incrementCounter('+')">+</div>
                 </div>
                 <input type="text" name="notes" placeholder="one egg with two yolks...">
                 <input type="hidden" id="quantityInput" name="quantity" value="0">
