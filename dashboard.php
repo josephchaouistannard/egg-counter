@@ -35,7 +35,7 @@ function refreshEggRecords()
     <title>Egg Counter</title>
     <meta name="description" content="A simple app to count eggs.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=<?= $css_version?>">
 </head>
 
 <body>
