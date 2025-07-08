@@ -74,7 +74,7 @@ function countEggs($usersEggRecords)
     foreach ($usersEggRecords as $record) {
         $recordDate = new DateTime($record["recordedAt"]);
         $recordDayStart = (clone $recordDate)->setTime(0, 0, 0);
-        if ($recordDayStart == $todayStart) {
+        if ($recordDayStart->format('Y-m-d') === $todayStart->format('Y-m-d')) {
             $eggsToday += $record["quantity"];
         }
         if ($recordDayStart < $todayStart and $recordDayStart >= $last7DaysStart) {
