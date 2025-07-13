@@ -17,8 +17,6 @@ body {
   flex-direction: column;
   /* Stack children vertically */
   align-items: center;
-  /* Center children horizontally */
-  justify-content: center;
   /* Center children vertically */
   min-height: 100vh;
   /* Fallback for older browsers */
@@ -35,6 +33,7 @@ body {
 
 main {
   max-width: 400px;
+  margin: auto auto;
   text-align: center;
   padding: 10px;
   border: 3px solid var(--border);
